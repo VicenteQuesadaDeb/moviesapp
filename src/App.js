@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import styled from "styled-components";
+import MovieCard from './components/MovieCard'
 
 function App() {
   return (
@@ -24,24 +25,47 @@ function App() {
           }}
         ></StyledGenreInput>
       </StyledInputs>
-      <StyledSubmitButton onClick={() => console.log("Submit movie")}>Submit</StyledSubmitButton>
+      <StyledSubmitButton onClick={() => console.log("Submit movie")}>
+        Submit
+      </StyledSubmitButton>
 
-      <StyledRadioButton type="radio" name="horrorRadioButton" value="horror"></StyledRadioButton>
+      <StyledRadioButton
+        type="radio"
+        name="horrorRadioButton"
+        value="horror"
+      ></StyledRadioButton>
       <StyledLabel htmlFor="horrorRadioButton">Horror</StyledLabel>
-      <StyledRadioButton type="radio" name="romanceRadioButton" value="romance"></StyledRadioButton>
+      <StyledRadioButton
+        type="radio"
+        name="romanceRadioButton"
+        value="romance"
+      ></StyledRadioButton>
       <StyledLabel htmlFor="romanceRadioButton">Romance</StyledLabel>
-      <StyledRadioButton type="radio" name="commedyRadioButton" value="commedy"></StyledRadioButton>
+      <StyledRadioButton
+        type="radio"
+        name="commedyRadioButton"
+        value="commedy"
+      ></StyledRadioButton>
       <StyledLabel htmlFor="commedyRadioButton">Commedy</StyledLabel>
-      <StyledResetButton onClick={() => console.log("Reset genre filter")}>Reset</StyledResetButton>
+      <StyledResetButton onClick={() => console.log("Reset genre filter")}>
+        Reset
+      </StyledResetButton>
+
+      <MovieCard 
+        title={"Harry Potter"}
+      />    
     </>
   );
 }
 
 export default App;
 
-const StyledLabel = styled.label `{
-  font-weight: bold;
-}`
+
+const StyledLabel = styled.label`
+   {
+    font-weight: bold;
+  }
+`;
 
 const StyledResetButton = styled.button`
    {
@@ -61,9 +85,11 @@ const StyledResetButton = styled.button`
   }
 `;
 
-const StyledRadioButton = styled.input `{
-  margin: 10px 15px 10px 20px; 
-}`
+const StyledRadioButton = styled.input`
+   {
+    margin: 10px 15px 10px 20px;
+  }
+`;
 
 const StyledTitle = styled.h1`
    {
