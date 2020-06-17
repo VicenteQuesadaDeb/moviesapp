@@ -53,6 +53,18 @@ function App() {
           Reset
         </StyledResetButton>
 
+        <StyledForm>
+            <StyledSearchInput
+              type="text"
+              name="searchInput"
+              value="Search by movie name"
+              onChange={() => {
+                console.log("MovieNameInput");
+              }}
+            ></StyledSearchInput>
+          <StyledSearchButton onClick={() => console.log("Search movie")}>Search</StyledSearchButton>
+        </StyledForm>
+
         <StyledList>
           {moviesList.map((item) => (
             <MovieCard
@@ -69,6 +81,44 @@ function App() {
 }
 
 export default App;
+
+const StyledForm = styled.form`
+   {
+    display: flex;
+    flex-direction: row;
+    border-width: 1px solid #0d0327;
+    padding: 2px;
+  }
+`;
+
+const StyledSearchInput = styled.input`
+   {
+    display: flex;
+    background-color: #f4f2c9;
+    font-size: 1.2em;
+    text-align: center;
+    flex: 1;
+    width: 100%;
+
+  }
+`;
+
+const StyledSearchButton = styled.button`
+   {
+    border-radius: 10px;
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    background-color: #0d0327;
+    color: #f4f2c9;
+    padding: 10px auto;
+    font-weight: bold;
+    font-size: 1.1em;
+  }
+`;
 
 const StyledList = styled.ul`
    {
@@ -146,7 +196,6 @@ const StyledSubmitButton = styled.button`
 const StyledInputs = styled.div`
    {
     display: grid;
-    grid-template-colums: 60% 40%;
     grid-template-rows: auto auto;
   }
 `;
