@@ -25,11 +25,45 @@ function App() {
         ></StyledGenreInput>
       </StyledInputs>
       <StyledSubmitButton onClick={() => console.log("Submit movie")}>Submit</StyledSubmitButton>
+
+      <StyledRadioButton type="radio" name="horrorRadioButton" value="horror"></StyledRadioButton>
+      <StyledLabel htmlFor="horrorRadioButton">Horror</StyledLabel>
+      <StyledRadioButton type="radio" name="romanceRadioButton" value="romance"></StyledRadioButton>
+      <StyledLabel htmlFor="romanceRadioButton">Romance</StyledLabel>
+      <StyledRadioButton type="radio" name="commedyRadioButton" value="commedy"></StyledRadioButton>
+      <StyledLabel htmlFor="commedyRadioButton">Commedy</StyledLabel>
+      <StyledResetButton onClick={() => console.log("Reset genre filter")}>Reset</StyledResetButton>
     </>
   );
 }
 
 export default App;
+
+const StyledLabel = styled.label `{
+  font-weight: bold;
+}`
+
+const StyledResetButton = styled.button`
+   {
+    border-radius: 10px;
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    background-color: #f2f6ad;
+    color: #eb3535;
+    padding: 10px 50px;
+    margin-top: 10px;
+    margin: 10px 120px 10px 120px;
+    font-weight: bold;
+  }
+`;
+
+const StyledRadioButton = styled.input `{
+  margin: 10px 15px 10px 20px; 
+}`
 
 const StyledTitle = styled.h1`
    {
@@ -58,10 +92,10 @@ const StyledSubmitButton = styled.button`
     color: #f4f2c9;
     padding: 10px 50px;
     padding-left: 40px;
-    padding-right: 40px;
+    padding-right: 50px;
     margin-top: 10px;
     margin: 10px 120px 10px 120px;
-
+    font-weight: bold;
   }
 `;
 
