@@ -1,7 +1,8 @@
 import React from "react";
 import "./App.css";
 import styled from "styled-components";
-import MovieCard from './components/MovieCard'
+import MovieCard from "./components/MovieCard";
+import moviesList from "./data/movieDataBase";
 
 function App() {
   return (
@@ -51,15 +52,29 @@ function App() {
         Reset
       </StyledResetButton>
 
-      <MovieCard 
-        title={"Harry Potter"}
-      />    
+      <StyledList>
+        {moviesList.map((item) => (
+          <MovieCard
+            title={item.title}
+            genre={item.genre}
+            watched={item.watched}
+            key={item.key}
+          />
+        ))}
+      </StyledList>
     </>
   );
 }
 
 export default App;
 
+const StyledList = styled.ul`
+   {
+    margin: auto;
+    padding: 0;
+    list-style-type: none;
+  }
+`;
 
 const StyledLabel = styled.label`
    {
@@ -82,6 +97,7 @@ const StyledResetButton = styled.button`
     margin-top: 10px;
     margin: 10px 120px 10px 120px;
     font-weight: bold;
+    font-size: 1.1em;
   }
 `;
 
@@ -102,6 +118,7 @@ const StyledTitle = styled.h1`
     height: 50px;
     color: #f2f6ad;
     font-weight: bold;
+    font-size: 2.5em;
   }
 `;
 
@@ -116,12 +133,11 @@ const StyledSubmitButton = styled.button`
     border: none;
     background-color: #0d0327;
     color: #f4f2c9;
-    padding: 10px 50px;
-    padding-left: 40px;
-    padding-right: 50px;
+    padding: 10px 45px;
     margin-top: 10px;
     margin: 10px 120px 10px 120px;
     font-weight: bold;
+    font-size: 1.1em;
   }
 `;
 
@@ -137,6 +153,8 @@ const StyledNameInput = styled.input`
    {
     grid-column: 1 / span 3;
     background-color: #f4f2c9;
+    font-size: 1.2em;
+    text-align: center;
   }
 `;
 
@@ -144,5 +162,7 @@ const StyledGenreInput = styled.input`
    {
     grid-column: 1 / span 3;
     background-color: #f4f2c9;
+    font-size: 1.2em;
+    text-align: center;
   }
 `;
