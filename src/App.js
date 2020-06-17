@@ -6,63 +6,65 @@ import moviesList from "./data/movieDataBase";
 
 function App() {
   return (
-    <>
-      <StyledTitle>MoviesApp</StyledTitle>
-      <StyledInputs>
-        <StyledNameInput
-          type="text"
-          name="movieNameInput"
-          value="Enter movie name"
-          onChange={() => {
-            console.log("MovieNameInput");
-          }}
-        ></StyledNameInput>
-        <StyledGenreInput
-          type="text"
-          name="movieGenreInput"
-          value="Enter movie genre"
-          onChange={() => {
-            console.log("MovieGenreInput");
-          }}
-        ></StyledGenreInput>
-      </StyledInputs>
-      <StyledSubmitButton onClick={() => console.log("Submit movie")}>
-        Submit
-      </StyledSubmitButton>
+    <div id="app-main-container">
+      <div id="container">
+        <StyledTitle>MoviesApp</StyledTitle>
+        <StyledInputs>
+          <StyledNameInput
+            type="text"
+            name="movieNameInput"
+            value="Enter movie name"
+            onChange={() => {
+              console.log("MovieNameInput");
+            }}
+          ></StyledNameInput>
+          <StyledGenreInput
+            type="text"
+            name="movieGenreInput"
+            value="Enter movie genre"
+            onChange={() => {
+              console.log("MovieGenreInput");
+            }}
+          ></StyledGenreInput>
+        </StyledInputs>
+        <StyledSubmitButton onClick={() => console.log("Submit movie")}>
+          Submit
+        </StyledSubmitButton>
 
-      <StyledRadioButton
-        type="radio"
-        name="horrorRadioButton"
-        value="horror"
-      ></StyledRadioButton>
-      <StyledLabel htmlFor="horrorRadioButton">Horror</StyledLabel>
-      <StyledRadioButton
-        type="radio"
-        name="romanceRadioButton"
-        value="romance"
-      ></StyledRadioButton>
-      <StyledLabel htmlFor="romanceRadioButton">Romance</StyledLabel>
-      <StyledRadioButton
-        type="radio"
-        name="commedyRadioButton"
-        value="commedy"
-      ></StyledRadioButton>
-      <StyledLabel htmlFor="commedyRadioButton">Commedy</StyledLabel>
-      <StyledResetButton onClick={() => console.log("Reset genre filter")}>
-        Reset
-      </StyledResetButton>
+        <StyledRadioButton
+          type="radio"
+          name="horrorRadioButton"
+          value="horror"
+        ></StyledRadioButton>
+        <StyledLabel htmlFor="horrorRadioButton">Horror</StyledLabel>
+        <StyledRadioButton
+          type="radio"
+          name="romanceRadioButton"
+          value="romance"
+        ></StyledRadioButton>
+        <StyledLabel htmlFor="romanceRadioButton">Romance</StyledLabel>
+        <StyledRadioButton
+          type="radio"
+          name="commedyRadioButton"
+          value="commedy"
+        ></StyledRadioButton>
+        <StyledLabel htmlFor="commedyRadioButton">Commedy</StyledLabel>
+        <StyledResetButton onClick={() => console.log("Reset genre filter")}>
+          Reset
+        </StyledResetButton>
 
-      <StyledList>
-        {moviesList.map((item) => (
-          <MovieCard
-            title={item.title}
-            genre={item.genre}
-            watched={item.watched}
-            key={item.key}
-          />
-        ))}
-      </StyledList>
-    </>
+        <StyledList>
+          {moviesList.map((item) => (
+            <MovieCard
+              title={item.title}
+              genre={item.genre}
+              watched={item.watched}
+              key={item.key}
+            />
+          ))}
+        </StyledList>
+      </div>
+    </div>
   );
 }
 

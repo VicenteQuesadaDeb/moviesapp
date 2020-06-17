@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+#app-main-container{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+ #container{
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    padding-right: 20px;
+}
