@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
+
 export default (props) => {
+  const [checked, setChecked] = useState(false)
+  const handleClick = () => setChecked(!checked)
+
   return (
     <StyledCard>
       <StyledCheckBox
         id="checkbox"
         type="checkbox"
         name="checkbox"
+        checked={checked}
+        onClick={handleClick}
       ></StyledCheckBox>
       <StyledMovieTitle>{props.title}</StyledMovieTitle>
       <StyledButton
@@ -79,6 +85,6 @@ const StyledCard = styled.div`
     color: #f4f2c9;
     border-width: 20px;
     border-color: #fff;
-    border-bottom: 3px solid #FFF;
+    border-bottom: 3px solid #fff;
   }
 `;

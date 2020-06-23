@@ -1,30 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import styled from "styled-components";
 import MovieCard from "./components/MovieCard";
 import moviesList from "./data/movieDataBase";
 
 function App() {
+  //Search bar state
+  const [search, setSearch] = useState("");
+  const handleSearch = (event) => event.preventDefault();
+  //Movie name bar state
+  const [movieName, setMovieName] = useState("");
+  const handleMovieName = (event) => setMovieName(event.target.value);
+  //Movie genre bar state
+  const [movieGenre, setMovieGenre] = useState("");
+  const handleMovieGenre = (event) => setMovieGenre(event.target.value);
+  //Radio buttons state
+  const [checkedHorror, setCheckedHorror] = useState(false)
+  const handleClickHorror = () => setCheckedHorror(!checkedHorror)
+  const [checkedRomance, setCheckedRomance] = useState(false)
+  const handleClickRomance = () => setCheckedRomance(!checkedRomance)
+  const [checkedCommedy, setCheckedCommedy] = useState(false)
+  const handleClickCommedy = () => setCheckedCommedy(!checkedCommedy)
+
   return (
     <div id="app-main-container">
       <div id="container">
         <StyledTitle>MoviesApp</StyledTitle>
         <StyledInputs>
+          <StyledLabel htmlFor="movieNameInput">Enter movie name</StyledLabel>
+
           <StyledNameInput
             type="text"
             name="movieNameInput"
-            value="Enter movie name"
-            onChange={() => {
-              console.log("MovieNameInput");
-            }}
+            value={movieName}
+            onChange={handleMovieName}
           ></StyledNameInput>
+
+          <StyledLabel htmlFor="movieGenreInput">Enter movie genre</StyledLabel>
+
           <StyledGenreInput
             type="text"
             name="movieGenreInput"
-            value="Enter movie genre"
-            onChange={() => {
-              console.log("MovieGenreInput");
-            }}
+            value={movieGenre}
+            onChange={handleMovieGenre}
           ></StyledGenreInput>
         </StyledInputs>
         <StyledSubmitButton onClick={() => console.log("Submit movie")}>
@@ -35,34 +53,40 @@ function App() {
           type="radio"
           name="horrorRadioButton"
           value="horror"
+          checked={checkedHorror}
+          onClick={handleClickHorror}
         ></StyledRadioButton>
         <StyledLabel htmlFor="horrorRadioButton">Horror</StyledLabel>
         <StyledRadioButton
           type="radio"
           name="romanceRadioButton"
           value="romance"
+          checked={checkedRomance}
+          onClick={handleClickRomance}
         ></StyledRadioButton>
         <StyledLabel htmlFor="romanceRadioButton">Romance</StyledLabel>
         <StyledRadioButton
           type="radio"
           name="commedyRadioButton"
           value="commedy"
+          checked={checkedCommedy}
+          onClick={handleClickCommedy}
         ></StyledRadioButton>
         <StyledLabel htmlFor="commedyRadioButton">Commedy</StyledLabel>
         <StyledResetButton onClick={() => console.log("Reset genre filter")}>
           Reset
         </StyledResetButton>
 
+        <StyledLabel htmlFor="searchInput">Search by name</StyledLabel>
+
         <StyledForm>
-            <StyledSearchInput
-              type="text"
-              name="searchInput"
-              value="Search by movie name"
-              onChange={() => {
-                console.log("MovieNameInput");
-              }}
-            ></StyledSearchInput>
-          <StyledSearchButton onClick={() => console.log("Search movie")}>Search</StyledSearchButton>
+          <StyledSearchInput
+            type="text"
+            name="searchInput"
+            value={search}
+            onChange={(event) => setSearch(event.target.value)}
+          ></StyledSearchInput>
+          <StyledSearchButton onClick={handleSearch}>Search</StyledSearchButton>
         </StyledForm>
 
         <StyledList>
@@ -99,7 +123,6 @@ const StyledSearchInput = styled.input`
     text-align: center;
     flex: 1;
     width: 100%;
-
   }
 `;
 

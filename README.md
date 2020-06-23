@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+This project is made and designed to run it on an iPhone X.
+
 ## Available Scripts
 
 In the project directory, you can run:
